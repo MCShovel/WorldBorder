@@ -24,7 +24,7 @@
 			<artifactId>spigot-api</artifactId>
 			<version>1.9-SNAPSHOT</version>
 			<scope>system</scope>
-			<systemPath>/opt/msm/src/spigot/spigot.jar</systemPath>
+			<systemPath>${basedir}/../spigot/spigot.jar</systemPath>
 		</dependency>
 		<!--Bukkit API-->
 		<dependency>
@@ -32,7 +32,7 @@
 			<artifactId>bukkit</artifactId>
 			<version>1.9-SNAPSHOT</version>
 			<scope>system</scope>
-			<systemPath>/opt/msm/src/spigot/craftbukkit.jar</systemPath>
+			<systemPath>${basedir}/../spigot/craftbukkit.jar</systemPath>
 		</dependency>
 		<!--Dynmap API-->
 		<dependency>
@@ -40,7 +40,7 @@
 			<artifactId>dynmap</artifactId>
 			<version>2.0</version>
 			<scope>system</scope>
-			<systemPath>/opt/msm/plugins/dynmap/dynmap.jar</systemPath>
+			<systemPath>${basedir}/../../plugins/dynmap/dynmap.jar</systemPath>
 		</dependency>
 	</dependencies>
 
