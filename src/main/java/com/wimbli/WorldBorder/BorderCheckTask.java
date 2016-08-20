@@ -8,6 +8,7 @@ import java.util.Set;
 import com.google.common.collect.ImmutableList;
 
 import org.bukkit.Bukkit;
+import org.bukkit.ChatColor;
 import org.bukkit.entity.Boat;
 import org.bukkit.entity.Entity;
 import org.bukkit.entity.EntityType;
@@ -17,7 +18,6 @@ import org.bukkit.event.player.PlayerTeleportEvent.TeleportCause;
 import org.bukkit.Location;
 import org.bukkit.util.Vector;
 import org.bukkit.World;
-
 
 public class BorderCheckTask implements Runnable
 {
@@ -52,8 +52,12 @@ public class BorderCheckTask implements Runnable
 		BorderData border = Config.Border(world.getName());
 		if (border == null) return null;
 
-		if (border.insideBorder(loc.getX(), loc.getZ(), Config.ShapeRound()))
+		if (border.insideBorder(loc.getX(), loc.getZ(), Config.ShapeRound())) {
+			if (notify && border.nearBorder(loc.getX(), loc.getZ(), Config.ShapeRound())) {
+				player.sendMessage(ChatColor.translateAlternateColorCodes('&', "&cYou are too close to the border."));
+			}
 			return null;
+		}
 
 		// if player is in bypass list (from bypass command), allow them beyond border; also ignore players currently being handled already
 		if (Config.isPlayerBypassing(player.getUniqueId()) || handlingPlayers.contains(player.getName().toLowerCase()))

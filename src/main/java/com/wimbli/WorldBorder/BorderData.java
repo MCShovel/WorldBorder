@@ -164,6 +164,12 @@ public class BorderData
 	}
 
 	// This algorithm of course needs to be fast, since it will be run very frequently
+	public boolean nearBorder(double xLoc, double zLoc, boolean round) {
+		return !insideBorder(xLoc - 50, zLoc - 50, round) ||
+			   !insideBorder(xLoc + 50, zLoc + 50, round);
+	}
+
+	// This algorithm of course needs to be fast, since it will be run very frequently
 	public boolean insideBorder(double xLoc, double zLoc, boolean round)
 	{
 		// if this border has a shape override set, use it
